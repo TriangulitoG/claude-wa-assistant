@@ -1,5 +1,7 @@
 # claude-wa-assistant
 
+**🌐 English · [Español](README.es.md)**
+
 **Turn [Claude Code](https://claude.com/claude-code) into your own personal
 assistant on WhatsApp — powered by your flat‑rate Pro/Max subscription, not a
 pay‑per‑token API.**
