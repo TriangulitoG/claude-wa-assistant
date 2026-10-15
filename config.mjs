@@ -55,6 +55,7 @@ export const config = {
 
   assistantName: get("ASSISTANT_NAME", "Asistente"),
   lang: get("ASSISTANT_LANG", "es"),
+  profilePicture: get("PROFILE_PICTURE"),
 
   ttsVoice: get("TTS_VOICE", "es-ES-AlvaroNeural"),
   ttsReplyToVoice: get("TTS_REPLY_TO_VOICE", "true") === "true",

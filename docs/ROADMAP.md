@@ -11,18 +11,20 @@ Lista viva de lo que falta o se puede mejorar antes de publicar. (Notas internas
 - [x] Wizard de configuración inicial (nombre, voz, tono, número propio/dedicado).
 - [x] README con enfoque de producto, licencia MIT, unidad systemd, guía de setup.
 
+## Hecho (v0.1, segunda tanda)
+- [x] **Foto de perfil**: `scripts/set-profile.mjs` (PUT /profile/name + /profile/picture
+      de OpenWA) y el wizard ya pregunta por la imagen. Se aplica con la sesión vinculada.
+- [x] **install.sh**: crea el venv e instala faster‑whisper/edge‑tts.
+
 ## Pendiente antes de publicar
-- [ ] **Foto de perfil desde el wizard**: preguntar por una imagen y ponerla como
-      avatar del asistente vía el endpoint del gateway (set profile picture).
-      Pedido explícitamente; falta implementarlo en `setup.mjs`.
 - [ ] **Briefings programados** (resumen diario: tiempo, agenda, correos/paquetes):
-      portar la arquitectura headless + timers systemd como módulo opcional.
+      portar la arquitectura headless + timers systemd como módulo opcional, en
+      versión genérica (sin las integraciones personales del autor).
 - [ ] Verificar el flujo completo end‑to‑end con un gateway real de prueba
-      (no el de producción del autor).
+      (no el de producción del autor). Todo compila y la lógica replica los scripts
+      probados en producción, pero falta una corrida e2e contra un gateway limpio.
 - [ ] Probar con **WAHA** además de OpenWA y documentar diferencias de endpoints
       (nombres de rutas de envío pueden variar).
-- [ ] `npm install` real: ¿añadir deps o dejarlo sin dependencias de runtime?
-- [ ] Script `install.sh` que cree el venv e instale faster‑whisper/edge‑tts.
 - [ ] GIF/vídeo demo para el README (lo que más engancha: voz + briefing).
 - [ ] Topics de GitHub y descripción para SEO; nombre final del repo.
 

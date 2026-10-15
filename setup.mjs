@@ -50,6 +50,10 @@ const tone = await ask(
   "¿Cómo quieres que hable? (describe el tono)",
   "cercano, directo y con sentido del humor"
 );
+const picture = await ask(
+  "Ruta a una imagen para la foto de perfil (opcional, Enter para saltar)",
+  ""
+);
 
 // --- Voz --------------------------------------------------------------------
 console.log("\n— Voz (notas de voz) —");
@@ -97,6 +101,7 @@ WA_MODE=${mode}
 
 ASSISTANT_NAME=${name}
 ASSISTANT_LANG=${lang}
+PROFILE_PICTURE=${picture}
 
 TTS_VOICE=${ttsVoice}
 TTS_REPLY_TO_VOICE=${ttsReply}
@@ -126,8 +131,9 @@ console.log(`
 
 Siguientes pasos:
    1. Asegúrate de que el gateway de WhatsApp está corriendo y la sesión vinculada.
-   2. Arranca el asistente:   npm start
-   3. Escríbele por WhatsApp desde ${ownerNum}.
+   2. Aplica nombre${picture ? " y foto" : ""} de perfil:   node scripts/set-profile.mjs
+   3. Arranca el asistente:   npm start
+   4. Escríbele por WhatsApp desde ${ownerNum}.
 
 Para cambiar el carácter, edita prompts/assistant.local.md cuando quieras.
 `);
