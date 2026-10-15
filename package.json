@@ -1,0 +1,31 @@
+{
+  "name": "claude-wa-assistant",
+  "version": "0.1.0",
+  "description": "Turn Claude Code (your flat-rate Pro/Max subscription) into a personal WhatsApp assistant: transcribes your voice notes, replies by text or voice, reads images and documents, and runs scheduled briefings — no per-message API cost.",
+  "type": "module",
+  "bin": {
+    "claude-wa": "dispatcher/dispatcher.mjs"
+  },
+  "scripts": {
+    "setup": "node setup.mjs",
+    "start": "node dispatcher/dispatcher.mjs",
+    "watch": "node scripts/watch-messages.mjs"
+  },
+  "keywords": [
+    "whatsapp",
+    "claude",
+    "claude-code",
+    "assistant",
+    "ai",
+    "chatbot",
+    "voice",
+    "whisper",
+    "tts",
+    "personal-assistant",
+    "self-hosted"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

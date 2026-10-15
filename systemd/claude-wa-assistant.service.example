@@ -1,0 +1,26 @@
+# Unidad systemd de ejemplo para dejar el asistente corriendo siempre.
+# Copia a /etc/systemd/system/claude-wa-assistant.service, ajusta rutas/usuario,
+# y luego:  systemctl daemon-reload && systemctl enable --now claude-wa-assistant
+#
+# Nota: Claude Code debe estar instalado y con sesión iniciada PARA ESTE USUARIO.
+
+[Unit]
+Description=claude-wa-assistant (WhatsApp personal assistant on Claude Code)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Cambia User y la ruta del proyecto:
+User=youruser
+WorkingDirectory=/opt/claude-wa-assistant
+# Asegúrate de que `node`, `claude`, `ffmpeg` y el venv están en el PATH:
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=PYTHON_BIN=/opt/claude-wa-assistant/.venv/bin/python
+Environment=EDGE_TTS_BIN=/opt/claude-wa-assistant/.venv/bin/edge-tts
+ExecStart=/usr/bin/node dispatcher/dispatcher.mjs
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
