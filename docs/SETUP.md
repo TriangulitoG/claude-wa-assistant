@@ -60,9 +60,40 @@ npm start
 
 Escríbele por WhatsApp desde tu número. Debería contestar.
 
-## 5. Dejarlo siempre encendido (systemd)
+## 5. Dejarlo siempre encendido
 
+### Linux (systemd)
 Ver [`systemd/claude-wa-assistant.service.example`](../systemd/claude-wa-assistant.service.example).
+
+### Windows
+El asistente también corre en Windows (Node, Python, ffmpeg y Claude Code son
+multiplataforma). Diferencias:
+
+```powershell
+# En vez de install.sh:
+python -m venv .venv
+.venv\Scripts\activate
+pip install faster-whisper edge-tts
+
+npm run setup
+npm start
+```
+
+En tu `.env`, apunta los binarios de Python al venv de Windows:
+```
+PYTHON_BIN=.venv\Scripts\python.exe
+EDGE_TTS_BIN=.venv\Scripts\edge-tts.exe
+```
+Asegúrate de que `ffmpeg` está en el PATH y de que `claude --version` funciona.
+El dispatcher ya lanza `claude` con shell en Windows (porque suele ser un `.cmd`).
+
+Para dejarlo siempre encendido usa el **Programador de tareas** (trigger "Al
+iniciar sesión") o [NSSM](https://nssm.cc/) para correrlo como servicio, en vez
+de systemd.
+
+### macOS
+Igual que Linux pero con `launchd` en lugar de systemd para el arranque
+automático (o simplemente `npm start` en una sesión persistente).
 
 ## Resolución de problemas
 

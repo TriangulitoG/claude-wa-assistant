@@ -99,6 +99,8 @@ function runClaude(contextPrompt) {
       // IS_SANDBOX=1: Claude Code no pide permisos interactivos (headless).
       env: { ...process.env, IS_SANDBOX: "1" },
       stdio: ["ignore", "pipe", "pipe"],
+      // En Windows, `claude` suele ser un .cmd y spawn necesita shell para lanzarlo.
+      shell: process.platform === "win32",
     });
     let out = "", err = "";
     child.stdout.on("data", (d) => (out += d));
@@ -138,6 +140,7 @@ const watcher = spawn("node", [join(ROOT, "scripts", "watch-messages.mjs"), Stri
   cwd: ROOT,
   env: process.env,
   stdio: ["ignore", "pipe", "inherit"],
+  shell: process.platform === "win32",
 });
 
 let buf = "";

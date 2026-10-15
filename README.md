@@ -64,6 +64,10 @@ WhatsApp  ──►  Gateway (OpenWA / WAHA, local REST API)
 - **Node.js ≥ 20** and **ffmpeg**.
 - **Python 3** with `faster-whisper` (transcription) and `edge-tts` (voice replies).
 
+Runs on **Linux, macOS and Windows** — everything it depends on is
+cross‑platform. See [`docs/SETUP.md`](docs/SETUP.md) for the per‑OS notes
+(`install.sh`/systemd on Linux; venv + Task Scheduler/NSSM on Windows).
+
 ## Quick start
 
 ```bash
